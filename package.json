@@ -1,10 +1,7 @@
 {
     "private": true,
-    "engines": {
-        "node": "v16.13.1"
-    },
     "scripts": {
-        "dev": "vite",
+        "dev": "vite --https",
         "build": "vite build",
         "php": "valet use php@8.1 && php artisan cache:clear && php artisan view:clear"
     },
