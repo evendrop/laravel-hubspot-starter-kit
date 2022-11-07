@@ -30,7 +30,7 @@
                                 <div>
                                     <ul>
                                         <li v-for="(t, key) in teams" :key="key">
-                                            <button class="block text-sm text-gray-700 hover:bg-gray-100 px-5 py-4 w-full text-left" :class="t.id == auth.team.id ? 'bg-gray-100 text-green-500' : ''" @click="changeActiveTeam(t.id)">{{t.name}} ({{t.portals_count}} portals)</button>
+                                            <button class="block text-sm text-gray-700 hover:bg-gray-100 px-5 py-4 w-full text-left" :class="t.id == team.id ? 'bg-gray-100 text-green-500' : ''" @click="changeActiveTeam(t.id)">{{t.name}} ({{t.portals_count}} portals)</button>
                                         </li>
                                     </ul>
                                     <div class="border-b h-0"></div>
@@ -63,7 +63,7 @@
                                 <div>
                                     <ul>
                                         <li v-for="(h, key) in hubs" :key="key">
-                                            <button class="block text-sm text-gray-700 hover:bg-gray-100 px-5 py-4 w-full text-left" :class="h.id == auth.hub?.id ? 'bg-gray-100 text-green-500' : ''" @click="changeActiveHub(h)">{{h.hub__domain}}</button>
+                                            <button class="block text-sm text-gray-700 hover:bg-gray-100 px-5 py-4 w-full text-left" :class="h.id == hub?.id ? 'bg-gray-100 text-green-500' : ''" @click="changeActiveHub(h)">{{h.hub__domain}}</button>
                                         </li>
                                     </ul>
                                     <div class="border-b h-0"></div>
@@ -200,7 +200,7 @@
 <script>
 
     import { useAuthStore, useHubSpotPortalsStore, useHubSpotListsStore } from '@/store'
-    import { mapState } from './../../../node_modules/pinia'
+    import { mapState, mapActions } from 'pinia'
     import router from "@/router";
 
 
@@ -211,16 +211,17 @@
             ...mapState(useAuthStore, ['isLoggedIn', 'team', 'hub', 'teams', 'hubs'])
         },
         data: () => ({
-            auth: useAuthStore(),
-            portals: useHubSpotPortalsStore(),
-            lists: useHubSpotListsStore(),
+            auth: null,
+            portals: null,
+            lists: null,
             showCreateTeam: false,
             newTeamName: "",
         }),
-        mounted() {
-            this.auth.update()
-        },  
+        mounted() { },  
         methods: {
+            ...mapActions(useAuthStore, ['update']),
+            ...mapActions(useHubSpotPortalsStore, ['fetchPortals']),
+            ...mapActions(useHubSpotListsStore, ['fetchLists']),
             showCreateNewTeam() {
                 this.newTeamName = "";
                 this.showCreateTeam = true;
@@ -228,8 +229,8 @@
 
             async changeActiveTeam(id) {
                 const res = await axios.post(route("teams.alias-as"), { team_id: id });
-                this.auth.update(() => {
-                    this.portals.reset()
+                this.update(() => {
+                    this.fetchPortals()
                     router.push("/portals")
                     
                 });
@@ -237,8 +238,8 @@
 
             async changeActiveHub(hub) {
                 const res = await axios.post(route("portals.alias-as"), hub);
-                this.auth.update(() => {
-                    this.lists.reset() 
+                this.update(() => {
+                    this.fetchLists()
                     router.push("/hs/lists")                   
                 });
             },
@@ -246,8 +247,8 @@
             async createNewTeam() {
                 const res = await axios.post(route("teams.store"), { name: this.newTeamName });
                 this.showCreateTeam = false;
-                this.auth.update(() => {
-                    this.portals.reset()
+                this.update(() => {
+                    this.fetchPortals()
                     router.push("/portals")
                 });
             },

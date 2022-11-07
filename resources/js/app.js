@@ -1,3 +1,6 @@
+import { createPinia } from 'pinia'
+const pinia = createPinia()
+
 import { createApp } from 'vue'
 import VueCookies from 'vue-cookies'
 
@@ -7,8 +10,7 @@ const route = useRoute();
 
 import App from '@/components/App.vue'
 
-import { createPinia } from './../../node_modules/pinia'
-const pinia = createPinia()
+
 
 import './bootstrap'
 import '../css/app.css';

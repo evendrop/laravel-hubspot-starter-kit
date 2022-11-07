@@ -1,4 +1,4 @@
-import { defineStore } from './../../../node_modules/pinia'
+import { defineStore } from 'pinia'
 
 export const useAuthStore = defineStore({
     id: 'Auth',
