@@ -5,7 +5,9 @@ export const useAuthStore = defineStore({
     state: () => ({ 
         loggedIn: false, 
         team: null,
-        hub: null 
+        hub: null,
+        teams: null ,
+        hubs: null
     }),
     getters: {
         isLoggedIn: (state) => state.loggedIn
@@ -20,14 +22,25 @@ export const useAuthStore = defineStore({
       setHub(hub){
         this.hub = hub
       },
+      setTeams(teams){
+        this.teams = teams
+      },
+      setHubs(hubs){
+        this.hubs = hubs
+      },
       async update(callback){
         if(this.isLoggedIn){
           const res = await axios.post(route("post.me"));
           this.setTeam(res.data.team)
           this.setHub(res.data.portal)
+          this.setTeams(res.data.teams)
+          this.setHubs(this.team.portals)
         }
-        console.log(callback)
         void 0 !== callback ? callback() : null
-      }
+      },
+
+      async logout() {
+        this.$reset();
+      },
     },
 })

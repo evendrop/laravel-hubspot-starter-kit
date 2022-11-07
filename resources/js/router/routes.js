@@ -35,7 +35,7 @@ export default [
     {
         path: '/hs/lists',
         name: 'lists',
-        component: () => import('@/pages/hubdb/Lists.vue'),
+        component: () => import('@/pages/hubspot/Lists.vue'),
         meta: {requiresAuth: true}
     }
 ]

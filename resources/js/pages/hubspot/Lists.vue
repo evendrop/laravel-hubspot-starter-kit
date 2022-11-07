@@ -1,15 +1,17 @@
 <template>
-	<div class="bg-grey-lighter min-h-screen flex flex-col">
-		<div class="container my-12 mx-auto px-4 md:px-12">
+    <div class="block justify-center items-center p-4 mx-4 mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200" >
+        <div class="bg-grey-lighter px-4">
 			<div class="py-5 flex justify-start">
 				<div>
-					<h1 class="mb-8 text-3xl text-center">My HubSpot Contact Lists</h1>
+					<h1 class="text-3xl text-center font-bold text-gray-700">My HubSpot Contact Lists</h1>
 				</div>
 			</div>
 		</div>
-		<div class="container my-12 mx-auto px-4 md:px-12" v-if="loaded">
+	</div>
+	<div class="block justify-center items-center p-4 mx-4 mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200" >
+		<div class="py-5 mx-auto px-4 md:px-4" v-if="!loading">
 			<div class="flex flex-wrap -mx-1 lg:-mx-4" v-if="lists.length">
-				<div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3" v-for="(list, key) in lists" :key="key">
+				<div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4" v-for="(list, key) in lists" :key="key">
 
 					<div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md bg-gray-800 border-gray-700">
 						<div class="flex mb-4">
@@ -32,33 +34,18 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 </template>
 
-<script>
+<script setup>
 
-    import { useAuthStore } from '@/store/auth'
+	import { storeToRefs } from 'pinia';
+	import { useHubSpotListsStore } from '@/store'
+	
 
-	export default {
-		name: 'Lists',
-		props: { },
-        data: () => ({
-			auth: useAuthStore(),
-            lists: [],
-			loaded: false
-        }),
-        mounted () {
-			this.fetchLists()
-        },
-		methods: {
-            
-            async fetchLists(){
-                const res = await axios.get(route('hs-lists.get'))
-                this.lists = res.data.lists
-				this.loaded = true
-            }
-            
-        }
-	}
+	const hubspotListsStore = useHubSpotListsStore();
+	const { lists, loading } = storeToRefs(useHubSpotListsStore());
+
+	hubspotListsStore.fetchLists()
+
 </script>

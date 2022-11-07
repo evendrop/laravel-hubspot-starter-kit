@@ -1,20 +1,23 @@
 <template>
-  <div class="bg-grey-lighter min-h-screen flex flex-col">
-		<div class="container my-12 mx-auto px-4 md:px-12">
-			<div class="py-5 flex justify-end">
+	<div class="block justify-center items-center p-4 mx-4 mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200" >
+        <div class="bg-grey-lighter px-4">
+			<div class="py-5 flex justify-between align-center">
+				<div>
+					<h1 class="text-3xl text-center font-bold text-gray-700">My Teams</h1>
+				</div>
 				<div>
 					<button
 						@click="showCreateNewTeam()"
-						class="w-full text-center py-3 rounded bg-gray-500 text-white hover:bg-green-dark focus:outline-none my-1 px-4"
+						class="w-full text-center py-3 rounded bg-gray-500 text-white hover:bg-green-dark focus:outline-none px-4"
 					>
 						Create new team
 					</button>
 				</div>
 			</div>
 		</div>
-		<div
-		class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2"
-		>
+	</div>
+	<div class="block justify-center items-center p-4 mx-4 mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200" >
+        <div class="bg-grey-lighter px-4">
 			<h1>Authenticated user</h1>
 			<div>Name: {{ me.name }}</div>
 			<div>Email: {{ me.email }}</div>

@@ -53,6 +53,9 @@ class AuthController extends Controller {
     public function me(Request $request) {
         $user = User::whereId($request->user()->id)->with(['teams' => function ($query){
             $query->withCount('portals');
+            $query->with(['portals' => function ($query2){
+                $query2->select('team_id', 'id', 'hub__domain');
+            }]);
         }])->first();
 
         $user->team = null;
