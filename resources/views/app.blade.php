@@ -8,7 +8,7 @@
 	@vite('resources/css/app.css')
 	@routes
 </head>
-<body class="bg-slate-100 text-slate-600 sidebar-expanded">
+<body class="sidebar-expanded">
 	<div id="app" class="flex h-screen overflow-hidden"></div>
 
 	@vite('resources/js/app.js')

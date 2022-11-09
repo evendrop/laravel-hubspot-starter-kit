@@ -9,7 +9,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 import { 
-    faHubspot
+    faHubspot,
+    faGithub
 } from '@fortawesome/free-brands-svg-icons'
 
 library.add(
@@ -18,5 +19,6 @@ library.add(
     faHubspot,
     faUserPlus,
     faRightToBracket,
-    faList
+    faList,
+    faGithub
 )

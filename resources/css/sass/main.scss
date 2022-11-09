@@ -1,4 +1,61 @@
 body {
-    background: unset;
-    font-family: 'Libre Franklin', sans-serif;
+    @apply bg-[#171721];
+    font-family: 'Noto Sans', sans-serif;
+}
+
+h1 {
+    @apply mb-2 text-3xl font-extrabold text-[#ffffff]
+}
+
+select, 
+textarea, 
+input[type="text"], 
+input[type="password"], 
+input[type="datetime"], 
+input[type="date"], 
+input[type="month"], 
+input[type="time"], 
+input[type="number"], 
+input[type="email"], 
+input[type="url"], 
+input[type="search"], 
+input[type="tel"] {
+    @apply block shadow w-full p-3 rounded mb-4 bg-white
+}
+
+button:not(.naked), .btn {
+    @apply inline-block text-center px-5 py-3 rounded bg-[#7678ED] text-white hover:bg-[#5e60bc] hover:text-white focus:outline-none my-1 transition duration-500 ease-in-out border-0
+}
+.btn.hubspot {
+    @apply bg-[#cf5e41] hover:bg-[#b25138]
+}
+.btn-with-icon {
+    @apply flex justify-center items-center
+}
+
+a {
+    @apply no-underline border-b border-[#7678ED] text-[#7678ED] hover:text-[#5e60bc] hover:border-[#5e60bc] font-medium transition duration-500 ease-in-out
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    border: 1px solid rgb(222, 222, 222);
+}
+
+.sidebar-link {
+    @apply flex items-center text-[#ffffff] hover:text-[#20E3C3] p-4 mb-2 mt-2 text-[16px] border-0
+}
+.card {
+    @apply overflow-hidden bg-[#22222C] rounded-3xl p-12
+}
+.card-gradient-teal {
+    @apply w-full h-full top-0 right-0 absolute;
+    background: url('/images/card-gradient-teal.png') no-repeat;
+    background-position: top right;
+}
+.subtext, .muted {
+    @apply text-[#707A9C]
 }
