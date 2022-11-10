@@ -96,7 +96,7 @@ class PortalController extends Controller
         if(!$portal){
             return response()->json(['status' => '0', 'message' => 'invalid portal.'], 401);
         }else{
-            session()->put('portal', $request->input());
+            session()->put('portal', $portal);
             return response()->json(['status' => '1', 'message' => 'Portal switched.']);
         }
 

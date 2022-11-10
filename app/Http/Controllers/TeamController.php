@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TeamUser;
+use App\Models\Portal;
 use App\Models\Team;
 use Auth;
 
@@ -100,8 +101,11 @@ class TeamController extends Controller
         if(!$team_user){
             return response()->json(['status' => '0', 'message' => 'invalid team.'], 401);
         }else{
+
+            $portal = Portal::whereTeamId($request->input('team_id'))->first();
+
             session()->put('alias', $request->input('team_id'));
-            session()->put('portal', null);
+            session()->put('portal', $portal);
             return response()->json(['status' => '1', 'message' => 'Team switched.']);
         }
         
