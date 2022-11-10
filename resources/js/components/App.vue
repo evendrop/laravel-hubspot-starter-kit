@@ -171,19 +171,17 @@
 					<span class="sr-only">Close modal</span>
 				</button>
 				<div class="py-6 px-6 lg:px-8">
-					<h3 class="mb-4 text-xl font-medium text-gray-900  text-white">
-						Create new team
-					</h3>
+					<h3 class="mb-4 text-xl font-medium text-white"> Create new team </h3>
 					<form class="mt-8" @submit.prevent="createNewTeam()">
 						<div>
 							<label
 								for="email"
-								class="block mb-2 text-sm font-medium text-gray-200  text-gray-300"
+								class="block mb-2 text-sm font-medium text-gray-200"
 								>Team name</label
 							>
 							<input
 								type="text"
-								class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  bg-gray-600  border-gray-500  placeholder-gray-400  text-white"
+								class=""
 								placeholder="my new team"
 								v-model="newTeamName"
 							/>
