@@ -45,12 +45,18 @@
 <script setup>
 
 	import { storeToRefs } from 'pinia';
-	import { useHubSpotListsStore } from '@/store'
-	
+	import { useAuthStore, useHubSpotListsStore } from '@/store'
+	import router from "@/router";	
 
 	const hubspotListsStore = useHubSpotListsStore();
 	const { lists, loading } = storeToRefs(useHubSpotListsStore());
 
-	hubspotListsStore.fetchLists()
+	const auth = useAuthStore()
+
+	if(!auth.hub){
+		router.push("/portals");
+	}else{
+		hubspotListsStore.fetchLists()
+	}
 
 </script>

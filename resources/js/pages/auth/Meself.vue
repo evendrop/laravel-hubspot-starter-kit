@@ -1,41 +1,36 @@
 <template>
-	<div class="block justify-center items-center p-4 mx-4 mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200" >
-        <div class="bg-grey-lighter px-4">
-			<div class="py-5 flex justify-between align-center">
+	<div class="block justify-center items-center" >
+        <div class="px-12">
+			<div class="pt-5 flex justify-between">
+				<div> <h1>My teams</h1> <div class="subtext">Having many teams is perfect for agencies that want to lockdown access.</div> </div>
 				<div>
-					<h1 class="text-3xl text-center font-bold text-gray-700">My Teams</h1>
-				</div>
-				<div>
-					<button
-						@click="showCreateNewTeam()"
-						class="w-full text-center py-3 rounded bg-gray-500 text-white hover:bg-green-dark focus:outline-none px-4"
-					>
+					<button @click="showCreateNewTeam()">
 						Create new team
 					</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="block justify-center items-center p-4 mx-4 mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200" >
-        <div class="bg-grey-lighter px-4">
-			<h1>Authenticated user</h1>
-			<div>Name: {{ me.name }}</div>
-			<div>Email: {{ me.email }}</div>
-			<div>Team: {{ me.team?.name }}</div>
-			<div class="pt-5">
-				<p class="pb-3"><i>Choose your active team</i></p>
-				<select
-				class="block border border-grey-light w-full p-3 rounded mb-4"
-				v-model="activeTeam"
-				name="teams"
-				placeholder="Choose a team"
-				@change="changeActiveTeam()"
-				>
-					<option value="null" disabled>Choose a team</option>
-					<option v-for="(t, k) in me?.teams" :value="t.id" :key="k">
-						{{ t.name }} ({{ t.portals_count }} portals)
-					</option>
-				</select>
+	<div class="block justify-center items-center p-4 mx-4 mt-4 mb-6" >
+		<div class="min-h-[50vh]" :class="!me.teams?.length ? 'flex justify-center items-center' : ''">
+			<div class="flex flex-wrap -mx-1 lg:-mx-4" v-if="me.teams?.length">
+				<div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4" v-for="(t, key) in me.teams" :key="key">
+					<div class="p-6 card relative">
+						<div class="card-gradient-teal"></div>
+						<div class="flex mb-8">
+							<font-awesome-icon icon="fa-solid fa-users" class="pr-0 text-3xl text-[#ffffff]" />
+							<div class="px-4 flex whitespace-nowrap text-ellipsis overflow-hidden"><h3 class="text-white text-xl">Team</h3></div>
+						</div>
+						<div class="border-b-2 border-[#707A9C] mb-8"></div>
+						<h5 class="mb-2 text-lg font-semibold tracking-tight text-white">
+							<span class="muted pr-2">Name:</span> {{ t.name }}
+						</h5>
+						<h5 class="mb-2 text-lg font-semibold tracking-tight text-white">
+							<span class="muted pr-2">Connected hubs:</span> {{t.portals_count}}
+						</h5>
+
+					</div>
+				</div>
 			</div>
 		</div>
   </div>
@@ -43,13 +38,13 @@
     id="authentication-modal"
     tabindex="-1"
     :class="showCreateTeam ? '' : 'hidden'"
-    class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full flex justify-center bg-gray-500 bg-opacity-60"
+    class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full flex justify-center bg-black bg-opacity-60"
   >
 		<div class="relative p-4 w-full max-w-md h-full md:h-auto">
-			<div class="relative bg-white rounded-lg shadow  bg-gray-700">
+			<div class="relative rounded-lg shadow  bg-gray-800">
 				<button
 				type="button"
-				class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-100 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center  hover:bg-gray-800  hover:text-white"
+				class="absolute top-3 right-2.5 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
 				@click="showCreateTeam = false"
 				>
 					<svg
@@ -71,7 +66,7 @@
 					<h3 class="mb-4 text-xl font-medium text-gray-900  text-white">
 						Create new team
 					</h3>
-					<form class="space-y-6" @submit.prevent="createNewTeam()">
+					<form class="mt-8" @submit.prevent="createNewTeam()">
 						<div>
 							<label
 								for="email"
@@ -86,12 +81,7 @@
 							/>
 						</div>
 
-						<button
-						type="submit"
-						class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-blue-600  hover:bg-blue-700  focus:ring-blue-800"
-						>
-						Create team
-						</button>
+						<button	type="submit" class="w-full mt-0"> Create team </button>
 					</form>
 				</div>
 			</div>
@@ -115,6 +105,9 @@ export default {
   }),
   async created() {
     this.fetchMe();
+	setTimeout(() => {
+	console.log(this.me)
+}, 1000)
   },
   methods: {
     showCreateNewTeam() {
