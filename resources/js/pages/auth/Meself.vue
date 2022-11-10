@@ -106,7 +106,6 @@ export default {
   async created() {
     this.fetchMe();
 	setTimeout(() => {
-	console.log(this.me)
 }, 1000)
   },
   methods: {
