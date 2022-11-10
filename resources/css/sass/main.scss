@@ -20,7 +20,7 @@ input[type="email"],
 input[type="url"], 
 input[type="search"], 
 input[type="tel"] {
-    @apply block shadow w-full p-3 rounded mb-4 bg-white
+    @apply block shadow w-full p-3 rounded mb-4 bg-white text-[#5e60bc]
 }
 
 button:not(.naked), .btn {
