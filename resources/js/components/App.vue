@@ -1,5 +1,5 @@
 <template>
-    <div class="super-bg w-full h-full absolute overflow-hidden" v-if="authRoutes.includes(routeName)"><img src="/images/abstract-1.svg" class="w-full" /></div>
+    <div class="super-bg w-full h-full absolute overflow-hidden" :class="!authRoutes.includes(routeName) ? 'bg-mute' : ''"><img src="/images/abstract-1.svg" class="w-full" /></div>
     <nav class="fixed z-30 w-full" v-if="authRoutes.includes(routeName)">
         <div class="container flex columns-2 justify-around items-center mx-auto max-w-[850px] py-6">
             <div class="text-white font-bold text-lg">LATCHKEY KIT</div>
