@@ -11,7 +11,7 @@
             </div>
         </div>
     </nav>
-    <nav class="fixed z-30 w-full" v-if="!authRoutes.includes(routeName)">
+    <nav class="fixed z-30 w-full bg-[#171721]" v-if="!authRoutes.includes(routeName)">
         <div class="py-6 lg:px-5 lg:pl-3">
             <div class="flex justify-between items-center">
                 <div class="flex justify-start items-center relative">
@@ -87,7 +87,7 @@
         </div>
     </nav>
     <div class="flex overflow-hidden pt-16" v-if="!authRoutes.includes(routeName)">
-        <aside class="fixed inset-y-0 left-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto transition-all duration-200 ease-in-out -translate-x-full border-0 shadow-none xl:ml-6 z-990 max-w-[16rem] rounded-2xl xl:translate-x-0">
+        <aside class="fixed z-40 inset-y-0 left-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto transition-all duration-200 ease-in-out -translate-x-full border-0 shadow-none xl:ml-6 z-990 max-w-[16rem] rounded-2xl xl:translate-x-0">
             <div class="flex relative flex-col flex-1 pt-0 min-h-0">
                 <div class="flex overflow-y-auto flex-col flex-1 pt-8 pb-4">
                     <div class="text-center border-b-2 border-[#707A9C] pb-8 mb-5">
