@@ -45,6 +45,11 @@ USER $NON_ROOT_USER
 RUN composer install --prefer-dist --ignore-platform-reqs --no-scripts --no-dev --no-autoloader
 RUN rm -rf /home/$NON_ROOT_USER/.composer
 
+# install and run npm packages
+RUN npm install
+RUN npm run build
+
+
 # Copy app
 COPY --chown=$NON_ROOT_USER:$NON_ROOT_GROUP . $LARAVEL_PATH/
 COPY ./.deploy/config/php/local.ini /usr/local/etc/php/conf.d/local.ini

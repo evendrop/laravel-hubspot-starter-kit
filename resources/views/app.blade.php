@@ -7,7 +7,7 @@
 	@php
 		$manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
 		echo '<pre>';
-			print_r($manifest);
+			print_r($manifest['index.js']);
 	@endphp
 	@vite('resources/css/app.css')
 	@routes
