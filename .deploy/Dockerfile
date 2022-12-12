@@ -42,6 +42,13 @@ USER $NON_ROOT_USER
 RUN composer install --prefer-dist --ignore-platform-reqs --no-scripts --no-dev --no-autoloader
 RUN rm -rf /home/$NON_ROOT_USER/.composer
 
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    npm
+RUN npm install npm@latest -g && \
+    npm install n -g && \
+    n latest
+    
 RUN npm run build
 
 # Copy app
