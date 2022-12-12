@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Laravel HubSpot Starter Kit</title>
 	@php
-		$manifest = json_decode(file_get_contents('build/manifest.json'), true);
+		$manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
 	@endphp
 	@vite('resources/css/app.css')
 	@routes
