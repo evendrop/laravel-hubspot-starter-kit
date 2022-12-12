@@ -42,11 +42,8 @@ USER $NON_ROOT_USER
 RUN composer install --prefer-dist --ignore-platform-reqs --no-scripts --no-dev --no-autoloader
 RUN rm -rf /home/$NON_ROOT_USER/.composer
 
-FROM php-system-setup
-WORKDIR /srv
-RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
-RUN apt-get -y install nodejs
-RUN npm install
+FROM ubuntu:latest
+
 # RUN npm run build
 
 # Copy app
