@@ -104,8 +104,5 @@ RUN echo "DIR: " && pwd
 WORKDIR /srv
 RUN ls -al
 RUN echo "DIR2: " && pwd
-#RUN npm run build
-
-FROM app-setup
 # RUN cd /srv/app
 RUN npm install
