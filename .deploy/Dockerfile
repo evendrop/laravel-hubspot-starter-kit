@@ -49,14 +49,14 @@ COPY ./.deploy/config/php/local.ini /usr/local/etc/php/conf.d/local.ini
 
 
 FROM node:16.13.1
-RUN echo npm -v
-RUN echo node -v
+RUN echo "Node: " && node -v
+RUN echo "NPM: " && npm -v
 
 #RUN npm run build
 
 FROM app-setup
 # RUN cd /srv/app
-# RUN npm install
+RUN npm install
 
 # Set any ENVs
 ARG APP_KEY=${APP_KEY}
