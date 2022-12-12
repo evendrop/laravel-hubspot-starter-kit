@@ -47,6 +47,8 @@ COPY --chown=$NON_ROOT_USER:$NON_ROOT_GROUP . $LARAVEL_PATH/
 COPY ./.deploy/config/php/local.ini /usr/local/etc/php/conf.d/local.ini
 
 FROM node:16.13.1
+RUN npm install
+RUN npm run build
 
 FROM app-setup
 
