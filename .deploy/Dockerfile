@@ -101,7 +101,7 @@ FROM node:16.13.1
 RUN echo "Node: " && node -v
 RUN echo "NPM: " && npm -v
 RUN echo "DIR: " && pwd
-WORKDIR /srv
+WORKDIR /srv/app
 RUN ls -al
 RUN echo "DIR2: " && pwd
 # RUN cd /srv/app
