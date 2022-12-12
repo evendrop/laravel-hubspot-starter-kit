@@ -49,7 +49,7 @@ COPY ./.deploy/config/php/local.ini /usr/local/etc/php/conf.d/local.ini
 
 
 FROM node:16.13.1
-RUN npm -v
+RUN echo npm -v
 
 #RUN npm run build
 
