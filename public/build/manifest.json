@@ -1,0 +1,97 @@
+{
+  "resources/js/app.js": {
+    "file": "assets/app.b5f93124.js",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/pages/auth/Login.vue",
+      "resources/js/pages/auth/Register.vue",
+      "resources/js/pages/auth/Logout.vue",
+      "resources/js/pages/auth/Meself.vue",
+      "resources/js/pages/auth/Portals.vue",
+      "resources/js/pages/hubspot/Lists.vue"
+    ],
+    "css": [
+      "assets/app.52e5f057.css"
+    ]
+  },
+  "resources/js/pages/auth/Login.vue": {
+    "file": "assets/Login.957ed9f7.js",
+    "src": "resources/js/pages/auth/Login.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_vform.es.531cc530.js"
+    ],
+    "css": [
+      "assets/app.52e5f057.css"
+    ]
+  },
+  "_vform.es.531cc530.js": {
+    "file": "assets/vform.es.531cc530.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/pages/auth/Register.vue": {
+    "file": "assets/Register.431fd2c3.js",
+    "src": "resources/js/pages/auth/Register.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_vform.es.531cc530.js"
+    ],
+    "css": [
+      "assets/app.52e5f057.css"
+    ]
+  },
+  "resources/js/pages/auth/Logout.vue": {
+    "file": "assets/Logout.f87497ed.js",
+    "src": "resources/js/pages/auth/Logout.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/app.52e5f057.css"
+    ]
+  },
+  "resources/js/pages/auth/Meself.vue": {
+    "file": "assets/Meself.0010e2c3.js",
+    "src": "resources/js/pages/auth/Meself.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/app.52e5f057.css"
+    ]
+  },
+  "resources/js/pages/auth/Portals.vue": {
+    "file": "assets/Portals.32e25f1a.js",
+    "src": "resources/js/pages/auth/Portals.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/app.52e5f057.css"
+    ]
+  },
+  "resources/js/pages/hubspot/Lists.vue": {
+    "file": "assets/Lists.194129ab.js",
+    "src": "resources/js/pages/hubspot/Lists.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/app.52e5f057.css"
+    ]
+  },
+  "resources/css/app.css": {
+    "file": "assets/app.52e5f057.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  }
+}
