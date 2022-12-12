@@ -95,7 +95,6 @@ ARG PUSHER_APP_CLUSTER=${PUSHER_APP_CLUSTER}
 EXPOSE 80
 COPY ./.deploy/entrypoint.sh /
 
-ENTRYPOINT ["sh", "/entrypoint.sh"]
 
 FROM node:16.13.1
 RUN echo "Node: " && node -v
@@ -106,3 +105,6 @@ RUN ls -al
 RUN echo "DIR2: " && pwd
 # RUN cd /srv/app
 RUN npm install
+
+FROM app-setup
+ENTRYPOINT ["sh", "/entrypoint.sh"]
