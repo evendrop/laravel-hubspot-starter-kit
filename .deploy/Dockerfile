@@ -42,7 +42,7 @@ USER $NON_ROOT_USER
 RUN composer install --prefer-dist --ignore-platform-reqs --no-scripts --no-dev --no-autoloader
 RUN rm -rf /home/$NON_ROOT_USER/.composer
 
-FROM ubuntu:latest
+FROM ubuntu
 USER root
 WORKDIR /home/app
 COPY ./package.json /home/app/package.json
