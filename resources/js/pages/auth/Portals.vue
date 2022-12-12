@@ -81,7 +81,6 @@
 
 	async function useHub(portal) {
 		const res = await axios.post(route("portals.alias-as"), portal);
-        console.log("test")
 		router.push("/hs/lists");
 	}
 
