@@ -51,9 +51,9 @@ COPY ./.deploy/config/php/local.ini /usr/local/etc/php/conf.d/local.ini
 FROM node:16.13.1
 RUN echo "Node: " && node -v
 RUN echo "NPM: " && npm -v
-RUN echo "DIR" && pwd
-RUN cd /srv
-RUN echo "DIR" && pwd
+RUN echo "DIR: " && pwd
+RUN cd /srv/app
+RUN echo "DIR2: " && pwd
 #RUN npm run build
 
 FROM app-setup
