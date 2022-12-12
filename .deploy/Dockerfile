@@ -48,18 +48,7 @@ COPY ./.deploy/config/php/local.ini /usr/local/etc/php/conf.d/local.ini
 
 
 
-FROM node:16.13.1
-RUN echo "Node: " && node -v
-RUN echo "NPM: " && npm -v
-RUN echo "DIR: " && pwd
-WORKDIR /srv
-RUN ls -al
-RUN echo "DIR2: " && pwd
-#RUN npm run build
 
-FROM app-setup
-# RUN cd /srv/app
-RUN npm install
 
 # Set any ENVs
 ARG APP_KEY=${APP_KEY}
@@ -107,3 +96,16 @@ EXPOSE 80
 COPY ./.deploy/entrypoint.sh /
 
 ENTRYPOINT ["sh", "/entrypoint.sh"]
+
+FROM node:16.13.1
+RUN echo "Node: " && node -v
+RUN echo "NPM: " && npm -v
+RUN echo "DIR: " && pwd
+WORKDIR /srv
+RUN ls -al
+RUN echo "DIR2: " && pwd
+#RUN npm run build
+
+FROM app-setup
+# RUN cd /srv/app
+RUN npm install
