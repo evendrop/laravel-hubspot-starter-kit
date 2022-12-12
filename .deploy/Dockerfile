@@ -52,6 +52,7 @@ FROM node:16.13.1
 RUN echo "Node: " && node -v
 RUN echo "NPM: " && npm -v
 RUN echo "DIR: " && pwd
+RUN cd /srv
 RUN ls -al
 RUN echo "DIR2: " && pwd
 #RUN npm run build
