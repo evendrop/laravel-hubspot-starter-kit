@@ -11,6 +11,5 @@
 <body class="sidebar-expanded">
 	<div id="app" class="flex h-screen overflow-hidden"></div>
 
-	@vite('resources/js/app.js')
 </body> 
 </html>
