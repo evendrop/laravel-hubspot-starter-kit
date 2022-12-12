@@ -96,6 +96,9 @@ EXPOSE 80
 COPY ./.deploy/entrypoint.sh /
 
 ENTRYPOINT ["sh", "/entrypoint.sh"]
+
+FROM node:16.13.1
+
 # FROM node:16.13.1
 # RUN echo "Node: " && node -v
 # RUN echo "NPM: " && npm -v
