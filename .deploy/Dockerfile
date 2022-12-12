@@ -42,7 +42,7 @@ USER $NON_ROOT_USER
 RUN composer install --prefer-dist --ignore-platform-reqs --no-scripts --no-dev --no-autoloader
 RUN rm -rf /home/$NON_ROOT_USER/.composer
 
-RUN apt install nodejs
+RUN npk install nodejs
 
 # RUN npm run build
 
