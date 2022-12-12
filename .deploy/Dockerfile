@@ -44,10 +44,7 @@ RUN rm -rf /home/$NON_ROOT_USER/.composer
 
 FROM ubuntu
 USER root
-WORKDIR /home/app
-COPY ./package.json /home/app/package.json
-RUN apt-get update
-RUN apt-get -y install curl gnupg
+WORKDIR /srv
 RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
 RUN apt-get -y install nodejs
 RUN npm install
