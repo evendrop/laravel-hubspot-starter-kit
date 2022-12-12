@@ -6,6 +6,7 @@
     "scripts": {
         "dev": "vite --https",
         "build": "vite build",
+        "deploy": "caprover deploy -branch master",
         "php": "valet use php@8.1 && php artisan cache:clear && php artisan view:clear"
     },
     "devDependencies": {
