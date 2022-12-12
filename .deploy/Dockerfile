@@ -46,6 +46,7 @@ RUN composer install --prefer-dist --ignore-platform-reqs --no-scripts --no-dev 
 RUN rm -rf /home/$NON_ROOT_USER/.composer
 
 # install and run npm packages
+COPY package.json ./
 RUN npm install
 RUN npm run build
 
