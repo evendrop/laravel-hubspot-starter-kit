@@ -48,6 +48,8 @@ COPY ./.deploy/config/php/local.ini /usr/local/etc/php/conf.d/local.ini
 
 FROM node:16.13.1
 
+FROM app-setup
+
 # Set any ENVs
 ARG APP_KEY=${APP_KEY}
 ARG APP_NAME=${APP_NAME}
