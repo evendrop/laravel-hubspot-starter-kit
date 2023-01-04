@@ -1,7 +1,7 @@
    # Laravel HubSpot Starter Kit
 ### A good place to start if you're building a public App for HubSpot
 
-##### [View the live demo](https://laravel-hubspot-starter-kit.herokuapp.com/register)
+##### [View the live demo](https://laravel-hubspot-starter-kit.server.joyceml.com/)
 
 ## Features
 - [Laravel 9.x](https://laravel.com/docs/9.x)
