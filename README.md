@@ -19,7 +19,7 @@
 - Set team and portal in session to allow subsequent api calls within the app relate to chosen portal instance
 - Procfile included for easy deployment to [Heroku](https://www.heroku.com/)
 
-## Requiremnts
+## Requirements
 - [Laravel Valet](https://laravel.com/docs/9.x/valet) or [equivalent](https://www.wampserver.com/en/)
 - [Composer](https://getcomposer.org/)
 - [Node v16.13.1](https://github.com/nvm-sh/nvm) or later
